@@ -1,0 +1,85 @@
+{
+  "conversation_id": "66f2b3b0-b9e4-8011-a60b-fd0e438a3b90",
+  "messages": [
+    {
+      "id": "4f27c628-580b-4005-913f-cd1828ae8d78",
+      "author": {
+        "role": "system",
+        "name": null,
+        "metadata": {}
+      },
+      "create_time": null,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": [
+          ""
+        ]
+      },
+      "status": "finished_successfully",
+      "end_turn": true,
+      "weight": 0,
+      "metadata": {
+        "is_visually_hidden_from_conversation": true
+      },
+      "recipient": "all",
+      "channel": null
+    },
+    {
+      "id": "aaa2d7cc-9bec-4cb8-8424-b8abaa0f596c",
+      "author": {
+        "role": "user"
+      },
+      "content": {
+        "content_type": "text",
+        "parts": [
+          "Make up a 5-sentence story about \"Sharky\", a tooth-brushing shark superhero. Make each sentence a bullet point."
+        ]
+      },
+      "metadata": {
+        "is_starter_prompt": true,
+        "suggestion_type": "starter"
+      },
+      "create_time": 1727181772.434
+    },
+    {
+      "id": "2b55cc1f-bb23-49d6-81f7-f6b2cb66cf6d",
+      "author": {
+        "role": "assistant",
+        "name": null,
+        "metadata": {}
+      },
+      "create_time": 1727181745.089082,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": [
+          "- Sharky, the fearless tooth-brushing shark superhero, roams the ocean depths, fighting against the evil plaque monsters that threaten marine creatures' smiles.  \n- Armed with his electrified toothbrush and minty-fresh toothpaste, he zooms through the waves, cleaning up cavities and saving sea animals from painful dental decay.  \n- One day, the villainous King Tartar rises from the dark trenches, plotting to cover the entire ocean floor with sticky plaque.  \n- Sharky, with his pearly white grin, dives into action, brushing through the villain’s defenses and polishing the coral reefs to sparkle again.  \n- With King Tartar defeated, Sharky becomes a hero across the seas, reminding everyone that a clean mouth leads to a healthy smile!"
+        ]
+      },
+      "status": "finished_successfully",
+      "end_turn": true,
+      "weight": 1,
+      "metadata": {
+        "citations": [],
+        "content_references": [],
+        "gizmo_id": null,
+        "finish_details": {
+          "type": "stop",
+          "stop_tokens": [
+            200002
+          ]
+        },
+        "is_complete": true,
+        "message_type": "next",
+        "model_slug": "gpt-4o",
+        "default_model_slug": "gpt-4o",
+        "pad": "AAAAAAAAAAAAAAAAAAA",
+        "parent_id": "aaa2d7cc-9bec-4cb8-8424-b8abaa0f596c",
+        "model_switcher_deny": []
+      },
+      "recipient": "all",
+      "channel": null
+    }
+  ]
+}
