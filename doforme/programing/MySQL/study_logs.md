@@ -75,3 +75,10 @@ truncate table * ;  删掉在重新生成新表里边数据都没了
 //////////
 
 ![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+
+
+# 查询
+![alt text](image-5.png)
