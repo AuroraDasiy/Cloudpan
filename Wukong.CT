@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>356991</ID>
+      <Description>"Player Stats"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FF8000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : b1-Win64-Shipping.exe
+  Version: 
+  Date   : 2024-08-20
+  Author : Tuuuup! (For the AoB), Destinate
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(PlayerStats,$process,48 8B ? 83 ? ? 48 8B ? ? E8 ? ? ? ? 48 8B ? ? 0F B6) // should be unique
+alloc(newmem,$1000,PlayerStats)
+
+alloc(pStats,8)
+registersymbol(pStats)
+
+label(return)
+
+newmem:
+  mov [pStats],rdx
+  add [pStats],18
+  push rbx
+  mov rbx,[pStats]
+  mov rbx,[rbx]
+  add rbx,38
+  mov rbx,[rbx]
+  mov [pStats],rbx
+  pop rbx
+  mov rax,rdx
+  cmp dword ptr [rax],00
+  jmp return
+
+PlayerStats:
+  jmp newmem
+  nop
+return:
+registersymbol(PlayerStats)
+
+[DISABLE]
+
+PlayerStats:
+  db 48 8B C2 83 38 00
+
+unregistersymbol(PlayerStats)
+dealloc(newmem)
+unregistersymbol(pStats)
+dealloc(pStats)
+
+{
+// ORIGINAL CODE - INJECTION POINT: b1-Win64-Shipping.exe+357A3B8
+
+b1-Win64-Shipping.exe+357A397: BA E3 01 00 00              - mov edx,000001E3
+b1-Win64-Shipping.exe+357A39C: EB E8                       - jmp b1-Win64-Shipping.exe+357A386
+b1-Win64-Shipping.exe+357A39E: 66 90                       - nop 2
+b1-Win64-Shipping.exe+357A3A0: 55                          - push rbp
+b1-Win64-Shipping.exe+357A3A1: 48 8B EC                    - mov rbp,rsp
+b1-Win64-Shipping.exe+357A3A4: 48 83 EC 40                 - sub rsp,40
+b1-Win64-Shipping.exe+357A3A8: 4C 89 55 F8                 - mov [rbp-08],r10
+b1-Win64-Shipping.exe+357A3AC: 48 89 4D F0                 - mov [rbp-10],rcx
+b1-Win64-Shipping.exe+357A3B0: 48 89 55 E8                 - mov [rbp-18],rdx
+b1-Win64-Shipping.exe+357A3B4: 4C 89 45 E0                 - mov [rbp-20],r8
+// ---------- INJECTING HERE ----------
+b1-Win64-Shipping.exe+357A3B8: 48 8B C2                    - mov rax,rdx
+// ---------- DONE INJECTING  ----------
+b1-Win64-Shipping.exe+357A3BB: 83 38 00                    - cmp dword ptr [rax],00
+b1-Win64-Shipping.exe+357A3BE: 48 8B 4D F8                 - mov rcx,[rbp-08]
+b1-Win64-Shipping.exe+357A3C2: E8 FB 16 4D 01              - call b1-Win64-Shipping.exe+4A4BAC2
+b1-Win64-Shipping.exe+357A3C7: 48 8B 4D E8                 - mov rcx,[rbp-18]
+b1-Win64-Shipping.exe+357A3CB: 0F B6 55 E0                 - movzx edx,byte ptr [rbp-20]
+b1-Win64-Shipping.exe+357A3CF: FF D0                       - call rax
+b1-Win64-Shipping.exe+357A3D1: 48 8D 65 00                 - lea rsp,[rbp+00]
+b1-Win64-Shipping.exe+357A3D5: 5D                          - pop rbp
+b1-Win64-Shipping.exe+357A3D6: C3                          - ret 
+b1-Win64-Shipping.exe+357A3D7: 66 0F 1F 84 00 00 00 00 00  - nop word ptr [rax+rax+00000000]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>357038</ID>
+          <Description>"Require Rest"</Description>
+          <Options moHideChildren="1"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>357000</ID>
+              <Description>"Health (Max)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357003</ID>
+              <Description>"Mana (Max)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357005</ID>
+              <Description>"Stamina (Max)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357017</ID>
+              <Description>"Gourg (Max)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357039</ID>
+          <Description>"Require Changing Gear or Combat"</Description>
+          <Options moHideChildren="1"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>357028</ID>
+              <Description>"Attack"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1BC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357029</ID>
+              <Description>"Defense"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357030</ID>
+              <Description>"Stamina Recover Rate"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357034</ID>
+              <Description>"Critical Hit Chance (x100)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1DC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357031</ID>
+              <Description>"Critical Hit Damage (Bonus) (x100)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357036</ID>
+              <Description>"Damage Bonus (x100)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>1FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357037</ID>
+              <Description>"Damage Reduction (x100)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>200</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357041</ID>
+              <Description>"Chill Resistance"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>230</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357042</ID>
+              <Description>"Burn Resistance"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>234</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357043</ID>
+              <Description>"Poison Resistance"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>238</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357044</ID>
+              <Description>"Shock Resistance"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pStats</Address>
+              <Offsets>
+                <Offset>23C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357002</ID>
+          <Description>"Health"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>27C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>356994</ID>
+          <Description>"Mana"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>280</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>356997</ID>
+          <Description>"Stamina"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>298</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357019</ID>
+          <Description>"Gourg"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>308</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357011</ID>
+          <Description>"Focus"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>31C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357009</ID>
+          <Description>"Will Gained From Defeating The Enemy"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>33C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357016</ID>
+          <Description>"Vessel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>344</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>357032</ID>
+          <Description>"Qi"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pStats</Address>
+          <Offsets>
+            <Offset>348</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>40</ID>
+      <Description>"Inventory Item (On Hover)"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FF8000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : b1-Win64-Shipping.exe
+  Version:
+  Date   : 2024-08-20
+  Author :  The Mogician (For the pointer), Destinate
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(InventoryItem,$process,48 8B ? 83 ? ? 48 63 ? ? 85 ? 0F 8E ? ? ? ? 48 8B ? ? ? ? ? 48 8B ? ? 49 8B ? 96) // should be unique
+alloc(newmem,$1000,InventoryItem)
+
+alloc(pInventoryItem,8)
+registersymbol(pInventoryItem)
+
+label(return)
+
+newmem:
+  push rbx
+  mov rbx,rax
+  mov rbx,[rbx+1C]
+  cmp rbx,0
+  jbe @f
+  mov [pInventoryItem],rax
+  @f:
+  pop rbx
+  mov rcx,rax
+  cmp dword ptr [rcx],00
+  jmp return
+
+InventoryItem:
+  jmp newmem
+  nop
+return:
+registersymbol(InventoryItem)
+
+[DISABLE]
+
+InventoryItem:
+  db 48 8B C8 83 39 00
+
+unregistersymbol(InventoryItem)
+dealloc(newmem)
+unregistersymbol(pInventoryItem)
+dealloc(pInventoryItem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: b1-Win64-Shipping.exe+15D50D6
+
+b1-Win64-Shipping.exe+15D50B1: 48 8B EC              - mov rbp,rsp
+b1-Win64-Shipping.exe+15D50B4: 48 83 EC 30           - sub rsp,30
+b1-Win64-Shipping.exe+15D50B8: 48 89 75 F0           - mov [rbp-10],rsi
+b1-Win64-Shipping.exe+15D50BC: 48 89 7D F8           - mov [rbp-08],rdi
+b1-Win64-Shipping.exe+15D50C0: 48 8B F9              - mov rdi,rcx
+b1-Win64-Shipping.exe+15D50C3: 48 8B F2              - mov rsi,rdx
+b1-Win64-Shipping.exe+15D50C6: 48 85 F6              - test rsi,rsi
+b1-Win64-Shipping.exe+15D50C9: 0F 84 54 00 00 00     - je b1-Win64-Shipping.exe+15D5123
+b1-Win64-Shipping.exe+15D50CF: 83 3E 00              - cmp dword ptr [rsi],00
+b1-Win64-Shipping.exe+15D50D2: 48 8B 46 10           - mov rax,[rsi+10]
+// ---------- INJECTING HERE ----------
+b1-Win64-Shipping.exe+15D50D6: 48 8B C8              - mov rcx,rax
+// ---------- DONE INJECTING  ----------
+b1-Win64-Shipping.exe+15D50D9: 83 39 00              - cmp dword ptr [rcx],00
+b1-Win64-Shipping.exe+15D50DC: 48 63 40 18           - movsxd  rax,dword ptr [rax+18]
+b1-Win64-Shipping.exe+15D50E0: 85 C0                 - test eax,eax
+b1-Win64-Shipping.exe+15D50E2: 0F 8E 3B 00 00 00     - jng b1-Win64-Shipping.exe+15D5123
+b1-Win64-Shipping.exe+15D50E8: 48 8B 87 B0 01 00 00  - mov rax,[rdi+000001B0]
+b1-Win64-Shipping.exe+15D50EF: 48 8B 40 68           - mov rax,[rax+68]
+b1-Win64-Shipping.exe+15D50F3: 49 8B 0D              - mov rcx,[r13]
+b1-Win64-Shipping.exe+15D50F6: 96                    - xchg eax,esi
+b1-Win64-Shipping.exe+15D50F7: DF 40 1C              - fild word ptr [rax+1C]
+b1-Win64-Shipping.exe+15D50FA: 48 8B 11              - mov rdx,[rcx]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Value"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pInventoryItem</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>357013</ID>
+      <Description>"Will Points (Interact The Shrine)"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FF8000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : b1-Win64-Shipping.exe
+  Version: 
+  Date   : 2024-08-20
+  Author : Destinate
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(Will,$process,48 8B ? ? 4C ? ? 48 8B ? E8 ? ? ? ? 48 8B ? ? 48 8B ? 48 8B) // should be unique
+alloc(newmem,$1000,Will)
+
+alloc(pWillPoints,8)
+registersymbol(pWillPoints)
+
+label(return)
+
+newmem:
+  mov [pWillPoints],rax
+  mov rax,[rax+20]
+  movsxd  r8,eax
+  jmp return
+
+Will:
+  jmp newmem
+  nop 2
+return:
+registersymbol(Will)
+
+[DISABLE]
+
+Will:
+  db 48 8B 40 20 4C 63 C0
+
+unregistersymbol(Will)
+dealloc(newmem)
+unregistersymbol(pWillPoints)
+dealloc(pWillPoints)
+
+{
+// ORIGINAL CODE - INJECTION POINT: b1-Win64-Shipping.exe+2D1EB8F
+
+b1-Win64-Shipping.exe+2D1EB6B: 49 8B 46 10        - mov rax,[r14+10]
+b1-Win64-Shipping.exe+2D1EB6F: 48 8B C8           - mov rcx,rax
+b1-Win64-Shipping.exe+2D1EB72: 83 39 00           - cmp dword ptr [rcx],00
+b1-Win64-Shipping.exe+2D1EB75: 48 63 48 18        - movsxd  rcx,dword ptr [rax+18]
+b1-Win64-Shipping.exe+2D1EB79: E8 CC 53 D0 01     - call b1-Win64-Shipping.exe+4A23F4A
+b1-Win64-Shipping.exe+2D1EB7E: 48 8B D0           - mov rdx,rax
+b1-Win64-Shipping.exe+2D1EB81: 41 83 3E 00        - cmp dword ptr [r14],00
+b1-Win64-Shipping.exe+2D1EB85: 49 8B 46 10        - mov rax,[r14+10]
+b1-Win64-Shipping.exe+2D1EB89: 48 8B C8           - mov rcx,rax
+b1-Win64-Shipping.exe+2D1EB8C: 83 39 00           - cmp dword ptr [rcx],00
+// ---------- INJECTING HERE ----------
+b1-Win64-Shipping.exe+2D1EB8F: 48 8B 40 20        - mov rax,[rax+20]
+// ---------- DONE INJECTING  ----------
+b1-Win64-Shipping.exe+2D1EB93: 4C 63 C0           - movsxd  r8,eax
+b1-Win64-Shipping.exe+2D1EB96: 48 8B CF           - mov rcx,rdi
+b1-Win64-Shipping.exe+2D1EB99: E8 A2 53 D0 01     - call b1-Win64-Shipping.exe+4A23F40
+b1-Win64-Shipping.exe+2D1EB9E: 48 8B 45 D0        - mov rax,[rbp-30]
+b1-Win64-Shipping.exe+2D1EBA2: 48 8B C8           - mov rcx,rax
+b1-Win64-Shipping.exe+2D1EBA5: 48 8B 00           - mov rax,[rax]
+b1-Win64-Shipping.exe+2D1EBA8: 4D 8B 15           - mov r10,[r13]
+b1-Win64-Shipping.exe+2D1EBAB: E9 AC D2 1A FF     - jmp b1-Win64-Shipping.exe+1ECBE5C
+b1-Win64-Shipping.exe+2D1EBB0: 50                 - push rax
+b1-Win64-Shipping.exe+2D1EBB1: 88 85 C0 75 9A 48  - mov [rbp+489A75C0],al
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>357014</ID>
+          <Description>"Value"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pWillPoints</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
