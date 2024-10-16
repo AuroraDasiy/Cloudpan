@@ -82,3 +82,4 @@ truncate table * ;  删掉在重新生成新表里边数据都没了
 
 # 查询
 ![alt text](image-5.png)
+![alt text](image-6.png)
